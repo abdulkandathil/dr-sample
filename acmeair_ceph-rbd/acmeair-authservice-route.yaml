@@ -3,6 +3,8 @@ apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
   name: acmeair-auth-route
+  labels:
+    appname: acmeair
 spec:
   host: acmeair.apps.ocsm1301015.lnxero1.boe
   path: /auth
@@ -14,6 +16,8 @@ apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
   name: acmeair-auth-route-dr
+  labels:
+    appname: acmeair
 spec:
   host: acmeair.apps.ocsm4204001.lnxero1.boe
   path: /auth

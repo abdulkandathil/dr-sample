@@ -3,6 +3,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: acmeair-authservice
+  labels:
+    appname: acmeair
 spec:
   replicas: 1
   selector:
@@ -12,6 +14,7 @@ spec:
     metadata:
       labels:
         name: acmeair-auth-deployment
+        appname: acmeair
       annotations:
         prometheus.io/scrape: "true"
         prometheus.io/port: "9080"
@@ -49,6 +52,8 @@ apiVersion: v1
 kind: Service
 metadata:
   name: acmeair-auth-service
+  labels:
+    appname: acmeair
 spec:
   ports:
     - port: 9080

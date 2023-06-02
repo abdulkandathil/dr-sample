@@ -2,6 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: acmeair-customerservice
+  labels:
+    appname: acmeair
 spec:
   replicas: 1
   selector:
@@ -11,6 +13,7 @@ spec:
     metadata:
       labels:
         name: acmeair-customer-deployment
+        appname: acmeair
       annotations:
         prometheus.io/scrape: "true"
         prometheus.io/port: "9080"
@@ -50,6 +53,8 @@ apiVersion: v1
 kind: Service
 metadata:
   name: acmeair-customer-service
+  labels:
+    appname: acmeair
 spec:
   ports:
     - port: 9080
@@ -63,6 +68,7 @@ metadata:
   creationTimestamp: null
   labels:
     service: acmeair-customer-db
+    appname: acmeair
   name: acmeair-customer-db
 spec:
   ports:
@@ -80,6 +86,8 @@ kind: Deployment
 metadata:
   creationTimestamp: null
   name: acmeair-customer-db
+  labels:
+    appname: acmeair
 spec:
   replicas: 1
   selector:
@@ -91,6 +99,7 @@ spec:
       creationTimestamp: null
       labels:
         name: acmeair-customer-db
+        appname: acmeair
     spec:
       volumes:
         - name: acmeair-customer-db-2
@@ -114,6 +123,8 @@ kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
   name: customerpvc
+  labels:
+    appname: acmeair
 spec:
   accessModes:
     - ReadWriteOnce

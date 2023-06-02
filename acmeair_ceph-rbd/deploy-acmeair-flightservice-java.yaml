@@ -2,6 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: acmeair-flightservice
+  labels:
+    appname: acmeair
 spec:
   replicas: 1
   selector:
@@ -11,6 +13,7 @@ spec:
     metadata:
       labels:
         name: acmeair-flight-deployment
+        appname: acmeair
       annotations:
         prometheus.io/scrape: "true"
         prometheus.io/port: "9080"
@@ -48,6 +51,8 @@ apiVersion: v1
 kind: Service
 metadata:
   name: acmeair-flight-service
+  labels:
+    appname: acmeair
 spec:
   ports:
     - port: 9080
@@ -61,6 +66,7 @@ metadata:
   creationTimestamp: null
   labels:
     service: acmeair-flight-db
+    appname: acmeair
   name: acmeair-flight-db
 spec:
   ports:
@@ -78,6 +84,8 @@ kind: Deployment
 metadata:
   creationTimestamp: null
   name: acmeair-flight-db
+  labels:
+    appname: acmeair
 spec:
   replicas: 1
   selector:
@@ -89,6 +97,7 @@ spec:
       creationTimestamp: null
       labels:
         name: acmeair-flight-db
+        appname: acmeair
     spec:
       volumes:
         - name: acmeair-flight-db-2
@@ -111,7 +120,9 @@ status: {}
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: flightpvc 
+  name: flightpvc
+  labels:
+    appname: acmeair
 spec:
   accessModes:
     - ReadWriteOnce
