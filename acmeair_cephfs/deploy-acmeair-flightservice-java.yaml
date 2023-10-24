@@ -90,10 +90,6 @@ spec:
       labels:
         name: acmeair-flight-db
     spec:
-      serviceAccountName: sa-with-anyuid
-      securityContext:
-        runAsUser: 1001
-        fsGroup: 1001
       volumes:
         - name: acmeair-flight-db-2
           persistentVolumeClaim:
