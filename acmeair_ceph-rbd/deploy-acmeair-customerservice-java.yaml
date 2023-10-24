@@ -101,10 +101,6 @@ spec:
         name: acmeair-customer-db
         appname: acmeair
     spec:
-      serviceAccountName: sa-with-anyuid
-      securityContext:
-        runAsUser: 1001
-        fsGroup: 1001
       volumes:
         - name: acmeair-customer-db-2
           persistentVolumeClaim:
