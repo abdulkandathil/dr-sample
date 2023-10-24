@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
       - name: acmeair-bookingservice-java
-        image: sys-loz-test-team-docker-local.artifactory.swg-devops.com/acmeair/acmeair-bookingservice-java:latest
+        image: docker-eu.artifactory.swg-devops.com/sys-loz-test-team-docker-local/acmeair/acmeair-bookingservice-java:latest
         ports:
           - containerPort: 9080
           - containerPort: 9443
@@ -143,7 +143,7 @@ spec:
           persistentVolumeClaim:
             claimName: bookingpvc
       containers:
-      - image: sys-loz-test-team-docker-local.artifactory.swg-devops.com/mongo:4.2
+      - image: docker-eu.artifactory.swg-devops.com/sys-loz-test-team-docker-local/mongo:4.2
         name: acmeair-booking-db
         ports:
         - containerPort: 27017
