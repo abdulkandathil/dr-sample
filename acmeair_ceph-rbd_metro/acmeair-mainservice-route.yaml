@@ -1,0 +1,26 @@
+---
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: acmeair-main-route
+  labels:
+    appname: acmeair
+spec:
+  host: acmeair.apps.ocsm4205001.lnxero1.boe
+  path: /acmeair
+  to:
+    kind: Service
+    name: acmeair-main-service
+---
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: acmeair-main-route-dr
+  labels:
+    appname: acmeair
+spec:
+  host: acmeair.apps.ocsm4202001.lnxero1.boe
+  path: /acmeair
+  to:
+    kind: Service
+    name: acmeair-main-service
