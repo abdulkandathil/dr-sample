@@ -6,7 +6,7 @@ metadata:
   labels:
     appname: acmeair
 spec:
-  host: acmeair.apps.ocsm1301015.lnxero1.boe
+  host: acmeair.apps.b3e14015.test.ocs
   path: /flight
   to:
     kind: Service
@@ -19,7 +19,7 @@ metadata:
   labels:
     appname: acmeair
 spec:
-  host: acmeair.apps.ocsm4204001.lnxero1.boe
+  host: acmeair.apps.b3e14001.test.ocs
   path: /flight
   to:
     kind: Service
