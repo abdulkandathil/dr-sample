@@ -10,3 +10,4 @@ resources:
 - acmeair-customerservice-route.yaml
 - deploy-acmeair-flightservice-java.yaml
 - acmeair-flightservice-route.yaml
+- busybox-pvc.yaml
